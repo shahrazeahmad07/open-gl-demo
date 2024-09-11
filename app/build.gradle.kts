@@ -46,4 +46,7 @@ dependencies {
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
+
+    //! sdp library for dimensions:
+    implementation("com.intuit.sdp:sdp-android:1.1.1")
 }

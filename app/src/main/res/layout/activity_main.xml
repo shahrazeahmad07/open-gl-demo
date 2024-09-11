@@ -7,7 +7,7 @@
 
     <com.example.opengldemo.custom.MyGLSurfaceView
         android:id="@+id/mGSV"
-        android:layout_margin="10dp"
+        android:layout_margin="@dimen/_10sdp"
         android:layout_width="match_parent"
         android:layout_height="match_parent"/>
 
