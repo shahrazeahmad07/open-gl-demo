@@ -14,6 +14,9 @@ import javax.microedition.khronos.opengles.GL10
 class MyGLSurfaceRenderer(private val context: Context) : GLSurfaceView.Renderer {
     private lateinit var mTriangle: Triangle
 
+    @Volatile
+    var angle: Float = 0f
+
     // number of coordinates per vertex in this array
     val COORDS_PER_VERTEX = 3
     var triangleCoords = floatArrayOf(     // in counterclockwise order:
@@ -49,9 +52,9 @@ class MyGLSurfaceRenderer(private val context: Context) : GLSurfaceView.Renderer
 
         val scratch = FloatArray(16)
 
-        // Create a rotation transformation for the triangle
-        val time = SystemClock.uptimeMillis() % 4000L
-        val angle = 0.090f * time.toInt()
+//        // Create a rotation transformation for the triangle
+//        val time = SystemClock.uptimeMillis() % 4000L
+//        val angle = 0.090f * time.toInt()
         Matrix.setRotateM(rotationMatrix, 0, angle, 0f, 0f, -1.0f)
 
         // Set the camera position (View matrix)
