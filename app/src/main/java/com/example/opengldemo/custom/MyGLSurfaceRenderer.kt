@@ -5,6 +5,7 @@ import android.opengl.GLES20
 import android.opengl.GLSurfaceView
 import android.opengl.Matrix
 import android.os.SystemClock
+import com.example.opengldemo.BuildConfig
 import java.nio.ByteBuffer
 import java.nio.ByteOrder
 import java.nio.FloatBuffer
@@ -53,8 +54,12 @@ class MyGLSurfaceRenderer(private val context: Context) : GLSurfaceView.Renderer
         val scratch = FloatArray(16)
 
 //        // Create a rotation transformation for the triangle
-//        val time = SystemClock.uptimeMillis() % 4000L
-//        val angle = 0.090f * time.toInt()
+        angle = if (BuildConfig.FLAVOR == "auto-rotate") {
+            val time = SystemClock.uptimeMillis() % 4000L
+            0.090f * time.toInt()
+        } else {
+            angle
+        }
         Matrix.setRotateM(rotationMatrix, 0, angle, 0f, 0f, -1.0f)
 
         // Set the camera position (View matrix)

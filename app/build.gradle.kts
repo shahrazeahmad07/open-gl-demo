@@ -23,6 +23,20 @@ android {
             proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro")
         }
     }
+
+    flavorDimensions += "open-gl"
+    productFlavors {
+        create("auto-rotate") {
+            dimension = "open-gl"
+            applicationIdSuffix = ".auto"
+        }
+
+        create("on-touch-rotation") {
+            dimension = "open-gl"
+            applicationIdSuffix = ".touch"
+        }
+    }
+
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_1_8
         targetCompatibility = JavaVersion.VERSION_1_8
@@ -32,6 +46,7 @@ android {
     }
 
     buildFeatures {
+        buildConfig = true
         viewBinding = true
     }
 }
